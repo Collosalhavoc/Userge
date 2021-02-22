@@ -27,15 +27,15 @@ logbot.reply_last_msg("Setting Configs ...")
 
 class Config:
     """ Configs to setup Userge """
-    API_ID = int(os.environ.get("API_ID"))
-    API_HASH = os.environ.get("API_HASH")
+    API_ID = int(os.env.get("API_ID"))
+    API_HASH = os.env.get("API_HASH")
     WORKERS = int(os.environ.get("WORKERS")) or os.cpu_count() + 4
-    BOT_TOKEN = os.environ.get("BOT_TOKEN")
-    HU_STRING_SESSION = os.environ.get("HU_STRING_SESSION")
-    OWNER_ID = tuple(filter(lambda x: x, map(int, os.environ.get("OWNER_ID", "0").split())))
-    LOG_CHANNEL_ID = int(os.environ.get("LOG_CHANNEL_ID"))
+    BOT_TOKEN = os.env.get("BOT_TOKEN")
+    HU_STRING_SESSION = os.env.get("HU_STRING_SESSION")
+    OWNER_ID = tuple(filter(lambda x: x, map(int, os.env.get("OWNER_ID", "0").split())))
+    LOG_CHANNEL_ID = int(os.env.get("LOG_CHANNEL_ID"))
     AUTH_CHATS = (OWNER_ID[0], LOG_CHANNEL_ID) if OWNER_ID else (LOG_CHANNEL_ID,)
-    DB_URI = os.environ.get("DATABASE_URL")
+    DB_URI = os.env.get("DATABASE_URL")
     LANG = os.environ.get("PREFERRED_LANGUAGE")
     DOWN_PATH = os.environ.get("DOWN_PATH")
     CMD_TRIGGER = os.environ.get("CMD_TRIGGER")
